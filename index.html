@@ -52,8 +52,8 @@
         </div>
 
         <nav class="navbar-menu" id="navbarMenu">
-          <ul role="menubar" class="navbar-end">
-            <li class="navbar-item">
+          <ul class="navbar-end" role="menubar">
+            <li class="navbar-item" role="menuitem">
               <a class="has-text-white" href="/">
                   <span class="icon">
                     <i aria-hidden="true" class="fa fa-home"></i>
@@ -61,11 +61,10 @@
                 <span>Home</span>
               </a>
             </li>
-            <li class="navbar-item">
+            <li class="navbar-item" role="menuitem">
               <div class="dropdown" id="admin-dropdown">
                 <div class="dropdown-trigger">
                   <a
-                    role="menuitem"
                     aria-expanded="false"
                     aria-haspopup="true"
                     href="#"
@@ -77,19 +76,22 @@
                   </a>
                 </div>
                 <div class="dropdown-menu">
-                  <ol aria-label="skip to" class="dropdown-content" id="admin-menu" role="menu">
-                    <li ><a role="menuitem" class="dropdown-item" href="/" tabindex="-1">Administration</a></li>
-                    <li><a role="menuitem" class="dropdown-item" href="/" tabindex="-1">Team Settings</a></li>
-                    <li><a role="menuitem" class="dropdown-item" href="/" tabindex="-1">Manage Your Team</a></li>
-                    <li><a role="menuitem" class="dropdown-item" href="/" tabindex="-1">Invitations</a></li>
+                  <ol aria-label="administration" class="dropdown-content" id="admin-menu" role="menu">
+                    <li role="menuitem"><a class="dropdown-item" href="/" tabindex="-1">Administration</a>
+                    </li>
+                    <li role="menuitem"><a class="dropdown-item" href="/" tabindex="-1">Team Settings</a>
+                    </li>
+                    <li role="menuitem"><a class="dropdown-item" href="/" tabindex="-1">Manage Your Team</a>
+                    </li>
+                    <li role="menuitem"><a class="dropdown-item" href="/" tabindex="-1">Invitations</a></li>
                     <li class="dropdown-divider" role="separator"></li>
-                    <li><a role="menuitem" class="dropdown-item" href="/" tabindex="-1">Authentication</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="/" tabindex="-1">Authentication</a>
+                    </li>
                   </ol>
                 </div>
               </div>
-
             </li>
-            <li class="navbar-item">
+            <li class="navbar-item" role="menuitem">
               <a class="has-text-white" href="/">
                   <span class="icon">
                     <i aria-hidden="true" class="fa fa-book"></i>
@@ -97,7 +99,7 @@
                 <span>Documentation</span>
               </a>
             </li>
-            <li class="navbar-item">
+            <li class="navbar-item" role="menuitem">
               <a class="has-text-white" href="/">
                   <span class="icon">
                     <i aria-hidden="true" class="fab fa-github"></i>

@@ -9,9 +9,13 @@ function initAdminNavigationMenu() {
 
   let index = -1;
 
-  function openMenu() {
+  function openMenu({ focusFirst }) {
     dropdown.classList.add(IS_ACTIVE);
     dropdown.ariaExpanded = true;
+    if (focusFirst) {
+      index = 0;
+      items.item(index).focus();
+    }
   }
 
   function closeMenu({ focusButton }) {
@@ -29,7 +33,7 @@ function initAdminNavigationMenu() {
     if (button.contains(target)) {
       return dropdown.classList.contains(IS_ACTIVE)
         ? closeMenu({ focusButton: true })
-        : openMenu();
+        : openMenu({ focusFirst: true });
     }
     if (target.nodeName === "A") {
       closeMenu({ focusButton: false });
@@ -50,7 +54,7 @@ function initAdminNavigationMenu() {
       case "ArrowUp":
         event.preventDefault();
         if (event.target === button) {
-          openMenu();
+          openMenu({focusFirst: false});
           index = maxIndex + 1;
         }
         if (index > 0) {
@@ -60,7 +64,7 @@ function initAdminNavigationMenu() {
       case "ArrowDown":
         event.preventDefault();
         if (event.target === button) {
-          openMenu();
+          openMenu({focusFirst: false});
         }
         if (index < maxIndex) {
           cycleList(1);
@@ -80,12 +84,18 @@ function initAdminNavigationMenu() {
     }
   }
 
+  function handleBlur(event) {
+    if (!dropdown.contains(event.relatedTarget))
+      closeMenu({ focusButton: false });
+  }
+
   document.addEventListener("click", (event) => {
     if (!dropdown.contains(event.target)) {
       closeMenu({ focusButton: false });
     }
   });
   dropdown.addEventListener("click", handleClick);
+  dropdown.addEventListener("focusout", handleBlur);
   dropdown.addEventListener("keydown", handleKeydown);
 }
 
